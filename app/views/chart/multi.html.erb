@@ -1,0 +1,74 @@
+<h1>Chart#multi</h1>
+<p>Find me in app/views/chart/multi.html.erb</p>
+<hr>
+<canvas id="chart1" width="400" height="400"></canvas>
+<hr>
+<canvas id="chart2" width="400" height="400"></canvas>
+<hr>
+<canvas id="chart3" width="400" height="400"></canvas>
+
+<script>
+var ctx = document.getElementById('chart1').getContext('2d');
+var myChart = new Chart(ctx, {
+  type: 'line',
+  data: {
+    labels: <%= @labels.to_json.html_safe %>,
+    datasets: [{
+      label:           '<%= @data1_label %>',
+      data:             <%= @data1_data.to_json.html_safe %>,
+      backgroundColor: "<%= @data1_backgroundColor %>"
+    }, {
+      label:           '<%= @data2_label %>',
+      data:             <%= @data2_data.to_json.html_safe %>,
+      backgroundColor: "<%= @data2_backgroundColor %>"
+    }]
+  },
+  options: {
+    responsive: false
+   }
+});
+</script>
+
+<script>
+var ctx = document.getElementById('chart2').getContext('2d');
+var myChart = new Chart(ctx, {
+  type: 'bar',
+  data: {
+    labels: <%= @labels.to_json.html_safe %>,
+    datasets: [{
+      label:           '<%= @data1_label %>',
+      data:             <%= @data1_data.to_json.html_safe %>,
+      backgroundColor: "<%= @data1_backgroundColor %>"
+    }, {
+      label:           '<%= @data2_label %>',
+      data:             <%= @data2_data.to_json.html_safe %>,
+      backgroundColor: "<%= @data2_backgroundColor %>"
+    }]
+  },
+  options: {
+    responsive: false
+   }
+});
+</script>
+
+<script>
+var ctx = document.getElementById('chart3').getContext('2d');
+var myChart = new Chart(ctx, {
+  type: 'radar',
+  data: {
+    labels: <%= @labels.to_json.html_safe %>,
+    datasets: [{
+      label:           '<%= @data1_label %>',
+      data:             <%= @data1_data.to_json.html_safe %>,
+      backgroundColor: "<%= @data1_backgroundColor %>"
+    }, {
+      label:           '<%= @data2_label %>',
+      data:             <%= @data2_data.to_json.html_safe %>,
+      backgroundColor: "<%= @data2_backgroundColor %>"
+    }]
+  },
+  options: {
+    responsive: false
+   }
+});
+</script>
